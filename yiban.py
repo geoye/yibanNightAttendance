@@ -14,7 +14,6 @@ class yiban:
         self.mobile = mobile
         self.password = password
         self.session = requests.session()
-        self.name = ""
         # 从https://lbs.amap.com/tools/picker 寻找宿舍经纬度
         self.night_sgin = '{"Reason":"","AttachmentFileName":"","LngLat":"jingweidu","Address":"dizhi"}'
         
@@ -39,7 +38,6 @@ class yiban:
         response = self.request(
             "https://api.uyiban.com/base/c/auth/yiban?verifyRequest=" + verifyRequest + "&CSRF=" + self.CSRF,
             cookies=self.COOKIES)
-        self.name = response["data"]["PersonName"]
         return response
         
     def request(self, url, method="get", params=None, cookies=None):

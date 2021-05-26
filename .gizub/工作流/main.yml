@@ -16,4 +16,6 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
-      - run: python yiban.py
+      - run:
+          pip install requests -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
+          python yiban.py

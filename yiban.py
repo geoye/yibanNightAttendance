@@ -81,8 +81,8 @@ class yiban:
 
 def main():
     # 修改下方的手机号和密码，即可实现一个宿舍一起签到
-    mobile=os.environ["mobile"]
-    password=os.environ["password"]
+    mobile=os.environ["MOBILE"]
+    password=os.environ["PASSWORD"]
     a = yiban("mobile", "password")
 #    b = yiban("moblie", "password")
 #    c = yiban("moblie", "password")

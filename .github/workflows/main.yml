@@ -21,6 +21,9 @@ jobs:
             python -m pip install --upgrade pip
       - name: Install requests
         run: |
-            pip install requests    
-      - run:
-          python yiban.py
+            pip install requests  
+      - name: 'Working'
+        env:
+          SCKEY: ${{ secrets.mobile }},${{ secrets.password }}
+          run:
+              python yiban.py

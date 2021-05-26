@@ -80,11 +80,11 @@ class yiban:
 
 def main():
     # 修改下方的手机号和密码，即可实现一个宿舍一起签到
-    a = yiban("moblienumber", "password")
-    b = yiban("moblienumber", "password")
-    c = yiban("moblienumber", "password")
-    d = yiban("moblienumber", "password")
-    yb_list = [a, b, c, d]
+    a = yiban("18066044085", "szh990727")
+#    b = yiban("moblienumber", "password")
+#    c = yiban("moblienumber", "password")
+#    d = yiban("moblienumber", "password")
+    yb_list = [a]
     for i in range(len(yb_list)):
         status = yb_list[i].setall()
         print(status)

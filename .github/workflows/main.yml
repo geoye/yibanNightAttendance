@@ -23,12 +23,8 @@ jobs:
         run: |
             pip install requests  
       - name: 'Working'
-        # uses: simon4862021/yibanNightAttendance@v1 # This is the action
-        # with:
-        # MOBILE: ${{ secrets.MOBILE }}
-        # PASSWORD: ${{ secrets.PASSWORD }}
         env:
-          SCKEY: ${{ secrets.MOBILE }}
-            #${{ secrets.PASSWORD }}
-          run:
-              python yiban.py
+          MOBILE: ${{ secrets.MOBILE }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+        run:
+            python yiban.py

@@ -3,6 +3,7 @@ import requests
 import json
 import re
 import time
+import os
 
 # 代码部分参考自https://hub.fastgit.org/rookiesmile/yibanAutoSgin
 class yiban:
@@ -80,10 +81,12 @@ class yiban:
 
 def main():
     # 修改下方的手机号和密码，即可实现一个宿舍一起签到
-    a = yiban("18066044085", "szh990727")
-#    b = yiban("moblienumber", "password")
-#    c = yiban("moblienumber", "password")
-#    d = yiban("moblienumber", "password")
+    mobile=os.environ["mobile"]
+    password=os.environ["password"]
+    a = yiban("mobile", "password")
+#    b = yiban("moblie", "password")
+#    c = yiban("moblie", "password")
+#    d = yiban("moblie", "password")
     yb_list = [a]
     for i in range(len(yb_list)):
         status = yb_list[i].setall()

@@ -1,7 +1,6 @@
 name: test
 
 on: 
-  push:
   schedule:
   - cron: '40/6 12 * * *'
 jobs:

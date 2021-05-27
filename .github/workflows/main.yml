@@ -3,7 +3,7 @@ name: test
 on: 
  # push:
   schedule:
-  - cron: '45 21 * * *'
+  - cron: '01 13 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,7 +23,19 @@ jobs:
             python -m pip install --upgrade pip
       - name: Install requests
         run: |
-            pip install requests  
+            pip install requests
+      - name: 'Send mail'
+        uses: dawidd6/action-send-mail@master
+        with:
+          server_address: smtp.qq.com
+          server_port: 465
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: 签到预报 
+          body: "success"
+          to: samzhanghan@qq.com
+          from: GitHub Actions
+          content_type: text/html
       - name: 'Working'
         env:
           MOBILE: ${{ secrets.MOBILE }}

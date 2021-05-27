@@ -3,10 +3,12 @@ name: test
 on: 
   push:
   schedule:
-  - cron: '01 13 * * *'
+  - cron: '40-59 12 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
     strategy:
       matrix:
         python-version: [ '3.x' ]

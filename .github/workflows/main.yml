@@ -2,7 +2,8 @@ name: test
 
 on: 
   push:
-  
+  schedule:
+  - cron: '37 13 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

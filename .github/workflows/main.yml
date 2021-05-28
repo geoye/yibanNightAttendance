@@ -1,8 +1,9 @@
 name: test
 
 on: 
+  push:
   schedule:
-  - cron: '30-50/5 13 * * *'
+  - cron: '0-10/5 14 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,6 +30,8 @@ jobs:
         env:
           MOBILE: ${{ secrets.MOBILE }}
           PASSWORD: ${{ secrets.PASSWORD }}
+          LNGLAT: ${{ secrets.LNGLAT }}
+          ADDRESS: ${{ secrets.ADDRESS }}
         run:
             python yiban.py
       - name: 'Send mail'

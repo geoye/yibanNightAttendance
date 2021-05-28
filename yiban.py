@@ -19,8 +19,6 @@ class yiban:
         LNGLAT=os.environ["LNGLAT"]
         ADDRESS=os.environ["ADDRESS"]
         self.night_sgin ='{"Reason":"","AttachmentFileName":"","LngLat":%s,"Address":%s}' %(LNGLAT,ADDRESS)
-        print(self.night_sgin)
-        print(LNGLAT,ADDRESS)
         
     def login(self):
         params = {

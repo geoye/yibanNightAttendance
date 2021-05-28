@@ -42,7 +42,7 @@ jobs:
         env:
           MOBILE: ${{ secrets.MOBILE }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          LNGLAT: ${{ secrets.LNGLAT }}
-          ADDRESS: ${{ secrets.ADDRESS }}
+          #LNGLAT: ${{ secrets.LNGLAT }}
+          #ADDRESS: ${{ secrets.ADDRESS }}
         run:
             python yiban.py

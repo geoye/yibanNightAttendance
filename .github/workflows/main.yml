@@ -1,9 +1,8 @@
 name: test
 
 on: 
-  push: 
   schedule:
-  - cron: '* 13 * * *'
+  - cron: '30-50/5 13 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,6 +25,12 @@ jobs:
       - name: Install requests
         run: |
             pip install requests
+      - name: 'Working'
+        env:
+          MOBILE: ${{ secrets.MOBILE }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+        run:
+            python yiban.py
       - name: 'Send mail'
         uses: dawidd6/action-send-mail@master
         with:
@@ -38,9 +43,3 @@ jobs:
           to: samzhanghan@qq.com
           from: GitHub Actions
           content_type: text/html
-      - name: 'Working'
-        env:
-          MOBILE: ${{ secrets.MOBILE }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-        run:
-            python yiban.py

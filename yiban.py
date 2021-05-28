@@ -16,7 +16,11 @@ class yiban:
         self.password = password
         self.session = requests.session()
         # 从https://lbs.amap.com/tools/picker 寻找宿舍经纬度
-        self.night_sgin = '{"Reason":"","AttachmentFileName":"","LngLat":"118.752382,31.958520","Address":"江苏省南京市雨花台区铁心桥街道三江学院主校区三江学院(东商业街)"}'
+        LNGLAT=os.environ["LNGLAT"]
+        ADDRESS=os.environ["ADDRESS"]
+        self.night_sgin ='{"Reason":"","AttachmentFileName":"","LngLat":%s,"Address":%s}' %(LNGLAT,ADDRESS)
+        print(self.night_sgin)
+        print(LNGLAT,ADDRESS)
         
     def login(self):
         params = {

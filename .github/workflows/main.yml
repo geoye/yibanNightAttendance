@@ -44,6 +44,6 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: 签到预报 (${{env.REPORT_DATE}})
           body: "success"
-          to: 838944282@qq.com
+          to: ${{ secrets.MAIL_USERNAME }}
           from: GitHub Actions
           content_type: text/html

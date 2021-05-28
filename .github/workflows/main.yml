@@ -2,7 +2,7 @@ name: test
 
 on: 
   schedule:
-  - cron: '0-15/5 14 * * *'
+  - cron: '20-30/5 14 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

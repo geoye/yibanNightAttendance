@@ -92,6 +92,7 @@ def main():
     yb_list = [a]
     for i in range(len(yb_list)):
         status = yb_list[i].setall()
+        print time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
         print(status)
         time.sleep(1)
     

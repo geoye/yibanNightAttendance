@@ -33,6 +33,8 @@ jobs:
           ADDRESS: ${{ secrets.ADDRESS }}
         run:
             python yiban.py
+      - name: 'Get Date'
+        run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
       - name: 'Send mail'
         uses: dawidd6/action-send-mail@master
         with:
@@ -40,8 +42,8 @@ jobs:
           server_port: 465
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
-          subject: 签到预报 
+          subject: 签到预报 (${{env.REPORT_DATE}})
           body: "success"
-          to: samzhanghan@qq.com
+          to: 838944282@qq.com
           from: GitHub Actions
           content_type: text/html

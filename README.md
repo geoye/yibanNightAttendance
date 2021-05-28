@@ -1,5 +1,5 @@
 # yibanNightAttendance
-使用python进行易班自动晚点签到，使用Actions的schedule实现自动化部署，并发送邮件到QQ邮箱进行通知，需配置secrets。
+使用python进行易班自动晚点签到，使用Actions的schedule实现自动化部署，并发送邮件到QQ邮箱进行通知，需配置secrets。<br>
 ps：只有当在未签到状态下，才会进行签到，否则返回{'code': 500, 'msg': '非法签到', 'data': None}
 
 ## 食用方法

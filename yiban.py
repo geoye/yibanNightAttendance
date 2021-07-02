@@ -27,14 +27,20 @@ class yiban:
         response = self.request("https://mobile.yiban.cn/api/v3/passport/login", params=params, cookies=self.COOKIES)
         if response is not None and response["response"] == 100:
             self.access_token = response["data"]["user"]["access_token"]
+            self.HEADERS["Authorization"] = "Bearer " + self.access_token
+            self.COOKIES["loginToken"] = self.access_token  # 添加COOKIES字段
             return response
         else:
             return response
         
     def auth(self) -> json:
-        location = self.session.get("http://f.yiban.cn/iapp/index?act=iapp7463&v=" + self.access_token,
-                                    allow_redirects=False).headers["Location"]
-        verifyRequest = re.findall(r"verify_request=(.*?)&", location)[0]
+        # test = self.session.get("http://f.yiban.cn/iapp/index?act=iapp7463&v=" + self.access_token,
+        #                           allow_redirects=False).headers["X-Request-Id"]
+        # print(test.headers)
+        
+        act = self.session.get("http://f.yiban.cn/iapp/index?act=iapp7463", allow_redirects=False, 
+                               cookies=self.COOKIES).headers["Location"]  # Response [302] 重定向
+        verifyRequest = re.findall(r"verify_request=(.*?)&", act)[0]
         response = self.request(
             "https://api.uyiban.com/base/c/auth/yiban?verifyRequest=" + verifyRequest + "&CSRF=" + self.CSRF,
             cookies=self.COOKIES)
